@@ -14,11 +14,7 @@ What's the difference between a villain and a super villain? Presentation!
 Currently, the appeal of Witchmacs is seeing a cute Marisa picture everytime you start up Emacs. Also, it is a very basic config which means you can easily add, edit or remove things as you like. You can use this as a building block when making your OWN Emacs config!
 
 #+BEGIN_QUOTE
-Ogres are like onions
-
-They smell?
-
-Yes - No! layers! onions have layers! ogres have layers!
+Nico Nico Ni!
 #+END_QUOTE
 As opposed to many other Emacs distributions, Witchmacs has ZERO customization layers which means you can just jump in, look at the config file and start editing away! After all, Emacs works best when it's customized to your own liking!
 * Quick install
@@ -62,9 +58,9 @@ Emacs breaks certain modes when it has line-numbers-mode enabled, (like docview 
 #+END_SRC
 ** Disable most gui elements
 #+BEGIN_SRC emacs-lisp
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
+  ;(tool-bar-mode -1)
+  ;(menu-bar-mode -1)
+  ;(scroll-bar-mode -1)
 #+END_SRC
 ** Enable copypasting outside of Emacs
 #+BEGIN_SRC emacs-lisp
@@ -149,7 +145,7 @@ One of the main selling points of Emacs! no Emacs distribution is complete witho
 #+BEGIN_SRC emacs-lisp
   (use-package org
     :config
-    (add-hook 'org-mode-hook 'org-indent-mode)
+    (add-hook 'org-mode-hook 'org-indent-mode 'flyspell-mode)
     (add-hook 'org-mode-hook
               '(lambda ()
                  (visual-line-mode 1))))
@@ -389,14 +385,14 @@ When doing C-s to search, you get this very nice and neat mini-buffer that you c
 Vim keybindings in Emacs. Please note that Witchmacs has NO other evil-mode compatibility packages because I like to KISS. This might change in the future
 *** Code
 #+BEGIN_SRC emacs-lisp
-  (use-package evil
-    :ensure t
-    :defer nil
-    :init
-    (setq evil-want-keybinding nil)
-    (setq evil-want-C-u-scroll t)
-    :config
-    (evil-mode 1))
+  ;; (use-package evil
+  ;;   :ensure t
+  ;;   :defer nil
+  ;;   :init
+  ;;   (setq evil-want-keybinding nil)
+  ;;   (setq evil-want-C-u-scroll t)
+  ;;   :config
+  ;;   (evil-mode 1))
 
   ;(use-package evil-collection
   ;  :after evil
@@ -657,3 +653,34 @@ I use meghanada to provide very neat autocompletion when editing Java files. I u
     (setq meghanada-java-path "java")
     (setq meghanada-maven-path "mvn"))
 #+END_SRC
+** Haskell
+*** Description
+lsp support for emacs
+https://github.com/emacs-lsp/lsp-haskell
+https://github.com/haskell/haskell-language-server
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-mode
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-haskell-server-path  "~/.ghcup/bin/haskell-language-server-wrapper")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         (haskell-mode . lsp)
+         ;; if you want which-key integration
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+(use-package haskell-mode
+    :ensure t)
+
+(use-package lsp-haskell
+    :ensure t)
+
+#+END_SRC
+* Faces
+** Font Size
+#+BEGIN_SRC emacs-lisp
+  (set-face-attribute 'default nil :height 160)
+#+END_SRC
+
