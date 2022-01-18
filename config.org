@@ -138,6 +138,11 @@ Super - Control - <arrow>
 #+BEGIN_SRC emacs-lisp
 (setq use-package-always-defer t)
 #+END_SRC
+** Start Full Screen
+#+BEGIN_SRC emacs-lisp
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+#+END_SRC
 * =Org= mode
 ** Description
 One of the main selling points of Emacs! no Emacs distribution is complete without sensible and well-defined org-mode defaults
