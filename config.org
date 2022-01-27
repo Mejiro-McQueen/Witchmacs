@@ -693,7 +693,29 @@ https://github.com/haskell/haskell-language-server
       :init (advice-add 'python-mode :before 'elpy-enable)
     )
 #+END_SRC
+* YAML
+*** Description
 
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package yaml
+      :ensure t
+      :config 
+      (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)) 
+      (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)) 
+    )
+#+END_SRC
+* Docker
+*** Description
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package docker
+  :ensure t
+  :bind ("C-c d" . docker))
+
+(use-package dockerfile-mode
+  :ensure t)
+#+END_SRC
 * Faces
 ** Font Size
 #+BEGIN_SRC emacs-lisp
