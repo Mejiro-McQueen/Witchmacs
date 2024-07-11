@@ -3,7 +3,7 @@
   (normal-top-level-add-subdirs-to-load-path))
 
 ;; Load Witchmacs theme
-(load-theme 'Witchmacs t)
+(load-theme 'modus-vivendi t)
 
 ;; Load Config
 (org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))

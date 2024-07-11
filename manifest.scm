@@ -9,6 +9,7 @@
 			    "emacs-paredit"
 			    "emacs-projectile"
 			    "emacs-sly"
+			    "emacs-modus-themes"
 			    "emacs-treemacs-extra"
 			    "emacs-undo-tree"
 			    "emacs-vertico"

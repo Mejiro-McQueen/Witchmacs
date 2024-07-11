@@ -241,6 +241,10 @@ Avy is a very useful package; instead of having to move your cursor to a line th
     :after (nerd-icons)
     :hook (after-init . doom-modeline-mode))
 #+end_src
+**** Theme
+#+begin_src elisp
+  (use-package modus-themes)
+#+end_src
 *** Org Mode
 **** Org Config
 Set hooks for:
