@@ -1,5 +1,6 @@
 (specifications->manifest '("emacs"
 			    "emacs-beacon"
+			    "emacs-elpy"
 			    "emacs-dashboard"
 			    "emacs-geiser"
 			    "emacs-htmlize"

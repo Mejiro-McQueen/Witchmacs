@@ -245,6 +245,10 @@ Avy is a very useful package; instead of having to move your cursor to a line th
 #+begin_src elisp
   (use-package modus-themes)
 #+end_src
+**** Disable Bell
+#+begin_src elisp
+  (setq ring-bell-function 'ignore)
+#+end_src
 *** Org Mode
 **** Org Config
 Set hooks for:
@@ -308,4 +312,8 @@ http://danmidwood.com/content/2014/11/21/animated-paredit.html
     (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
     ;; Recommended keymap prefix on Windows/Linux
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+#+end_src
+**** Python
+#+begin_src elisp
+  (use-package elpy)
 #+end_src
